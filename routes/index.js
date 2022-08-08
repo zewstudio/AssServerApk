@@ -4,7 +4,7 @@ var mongoose_ = require('mongoose')
 const {Schema} = require("mongoose");
 
 
-const uri = "mongodb+srv://zewdatabase:kb9aFnEu4Qikaax@zewgame.urb3i.mongodb.net/assignment?retryWrites=true&w=majority";
+const uri = "mongodb+srv://zewdatabase:ijoXgdmQ0NCyg9DO@zewgame.urb3i.mongodb.net/assignment?retryWrites=true&w=majority";
 mongoose_.connect(uri).catch(err => console.log('Co Loi Xay Ra'))
 
 const ImageBox = mongoose_.model('images',new Schema({
