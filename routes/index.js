@@ -109,6 +109,13 @@ router.post('/insert/',function (req,res){
 
 
 })
+router.get('/getData', function(req, res, next) {
+
+    ImageBox.find({},function (error,result){
+        if(error) throw error;
+        res.send(result);
+    });
+});
 router.get('/test',function (req,res,next){
   ImageBox.find({},function (error,result){
     if(error) throw error;
