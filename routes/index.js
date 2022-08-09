@@ -6,7 +6,7 @@ var mongoose_1 = require('mongoose')
 
 const uri = "mongodb+srv://zewdatabase:ijoXgdmQ0NCyg9DO@zewgame.urb3i.mongodb.net/assignment?retryWrites=true&w=majority";
 mongoose_.connect(uri).catch(err => console.log('Co Loi Xay Ra'))
-const uri1 = "mongodb+srv://zewdatabase:ijoXgdmQ0NCyg9DO@zewgame.urb3i.mongodb.net/Lab6?retryWrites=true&w=majority";
+const uri1 = "mongodb+srv://zewdatabase:ijoXgdmQ0NCyg9DO@zewgame.urb3i.mongodb.net/lab6?retryWrites=true&w=majority";
 mongoose_1.connect(uri1).catch(err => console.log('Co Loi Xay Ra'))
 const ImageBox = mongoose_.model('images',new Schema({
       _title: String,
