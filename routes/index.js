@@ -2,11 +2,12 @@ var express = require('express');
 var router = express.Router();
 var mongoose_ = require('mongoose')
 const {Schema} = require("mongoose");
-
+var mongoose_1 = require('mongoose')
 
 const uri = "mongodb+srv://zewdatabase:ijoXgdmQ0NCyg9DO@zewgame.urb3i.mongodb.net/assignment?retryWrites=true&w=majority";
 mongoose_.connect(uri).catch(err => console.log('Co Loi Xay Ra'))
-
+const uri1 = "mongodb+srv://zewdatabase:ijoXgdmQ0NCyg9DO@zewgame.urb3i.mongodb.net/Lab6?retryWrites=true&w=majority";
+mongoose_1.connect(uri1).catch(err => console.log('Co Loi Xay Ra'))
 const ImageBox = mongoose_.model('images',new Schema({
       _title: String,
       _content: String,
@@ -14,6 +15,12 @@ const ImageBox = mongoose_.model('images',new Schema({
       _timeUpload: String,
       _linkIMG: String
 }))
+const WallPapers = mongoose_1.model('wallpapers',{
+  description: String,
+  link: String,
+  categoryid: String,
+
+})
 /* GET home page. */
 router.get('/', function(req, res, next) {
   ImageBox.find({},function (error,result){
@@ -121,6 +128,24 @@ router.get('/test',function (req,res,next){
     if(error) throw error;
     res.send("Title: "+result[0]._title+"\n  --  Content :"+result[0]._content+"\n  --  tag: "+result[0]._tag[0] + "\n   --  Time: "+result[0]._timeUpload +"\n   --- Link: "+result[0]._linkIMG);
   });
+})
+router.get('/getData78', function(req, res, next) {
+
+  WallPapers.find({},function (error,result){
+    if(error) throw error;
+    res.send(result);
+  });
+});
+router.post('/insert78/',function (req,res){
+  var descriptionG = req.body.descriptionz;
+  var linkG = req.body.linkz;
+  var categoryidG = req.body.categoryidz;
+  WallPapers.insertMany([{description:descriptionG,link:linkG,categoryid:categoryidG}],function (error,dataz){
+    // res.send("Thanh Cong")
+    res.send(descriptionG+" -- "+linkG+" -- "+categoryidG);
+  })
+  // res.send(descriptionG+" -- "+linkG+" -- "+categoryidG);
+
 })
 
 module.exports = router;
